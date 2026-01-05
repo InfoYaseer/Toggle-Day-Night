@@ -1,0 +1,173 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+
+:root {
+  --bg-light: #f4f6fb;
+  --bg-dark: #0f1224;
+
+  --card-light: #ffffff;
+  --card-dark: #1a1e3a;
+
+  --primary: #6c63ff;
+  --primary-soft: #e6e8ff;
+
+  --text-light: #2b2b2b;
+  --text-dark: #f1f1f1;
+  --text-muted: #8a8fa3;
+
+  --transition: all 0.35s ease;
+}
+
+/* ===== RESET ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ===== BODY ===== */
+body {
+  font-family: "Inter", sans-serif;
+  min-height: 100vh;
+  background: radial-gradient(circle at top, #1b1f3a, #0f1224);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  transition: var(--transition);
+}
+
+/* ===== LIGHT MODE BACKGROUND ===== */
+body:not(.dark) {
+  background: linear-gradient(135deg, #eef1ff, #f9faff);
+}
+
+/* ===== CARD ===== */
+.app-card {
+  width: 360px;
+  max-width: 100%;
+  background: var(--card-light);
+  border-radius: 1.8rem;
+  padding: 2.6rem 2.4rem;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.15);
+  text-align: center;
+  transition: var(--transition);
+}
+
+/* ===== DARK CARD ===== */
+body.dark .app-card {
+  background: var(--card-dark);
+}
+
+/* ===== TITLE ===== */
+.app-title {
+  font-size: 2.4rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: var(--text-light);
+}
+
+body.dark .app-title {
+  color: var(--text-dark);
+}
+
+/* ===== DESCRIPTION ===== */
+.app-desc {
+  font-size: 1.4rem;
+  line-height: 1.6;
+  margin-bottom: 2.6rem;
+  color: var(--text-muted);
+}
+
+body.dark .app-desc {
+  color: #b9bdd6;
+}
+
+/* ===== TOGGLE ===== */
+.theme-toggle {
+  position: relative;
+  height: 56px;
+  background: var(--primary-soft);
+  border-radius: 50px;
+  padding: 6px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  transition: var(--transition);
+  margin-bottom: 2.2rem;
+}
+
+/* ===== KNOB ===== */
+.toggle-knob {
+  position: absolute;
+  left: 6px;
+  width: 44px;
+  height: 44px;
+  background: var(--primary);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+.toggle-icon {
+  font-size: 2.2rem;
+  color: #fff;
+}
+
+/* ===== TEXT ===== */
+.toggle-text {
+  flex: 1;
+  text-align: center;
+  font-weight: 600;
+  font-size: 1.4rem;
+  z-index: 1;
+  color: var(--text-light);
+  transition: var(--transition);
+}
+
+body.dark .toggle-text {
+  color: #1a1e3a;
+}
+
+/* ===== NIGHT MODE POSITION ===== */
+body.dark .toggle-knob {
+  left: calc(100% - 50px);
+  
+}
+
+/* ===== STATUS ===== */
+.status-box {
+  display: flex;
+  justify-content: center;
+  gap: 0.4rem;
+  font-size: 1.3rem;
+  color: var(--text-muted);
+}
+
+.status-value {
+  font-weight: 600;
+  color: var(--primary);
+}
+
+/* ===== DARK STATUS ===== */
+body.dark .status-box {
+  color: #b9bdd6;
+}
+
+/* ===== HOVER ===== */
+.theme-toggle:hover .toggle-knob {
+  transform: scale(1.05);
+}
+
+/* ===== MOBILE ===== */
+@media (max-width: 420px) {
+  body {
+    padding: 1.5rem;
+  }
+
+  .app-card {
+    padding: 2.2rem 2rem;
+  }
+}
